@@ -4,11 +4,11 @@ module.exports.homelist = function(req,res,next){
 
 
 module.exports.locationInfo = function(req,res,next){
- res.render('index', {title: ' Location Info...'});
+ res.render('location-info', {title: ' Location Info...'});
 };
 
 module.exports.addReview = function(req,res,next){
- res.render('index', { title: 'Add review'});
+ res.render('location-review-form', { title: 'Add review'});
 };
 
 

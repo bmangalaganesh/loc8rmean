@@ -1,34 +1,33 @@
 extends layout
 
+include _includes/sharedHTMLfunctions
+
+
+
 block content
  #banner.page-header
    .row  
      .col-lg-6
-       h1 Loc8r......
-        small &nbsp; Find places to work with wifi near you!
+       h1 #{pageHeader.title}
+        small &nbsp; #{pageHeader.strapline}
 
    .row
      .col-xs-12.col-sm-8
        .row.list-group
+        each location in locations
          .col-xs-12.list-group-item
            h4
-             a(href='/location') Starcups
+             a(href='/location') #{location.name}
              small &nbsp;
-               span.glyphicon.glyphicon-star
-               span.glyphicon.glyphicon-star
-               span.glyphicon.glyphicon-star
-               span.glyphicon.glyphicon-star-empty
-               span.glyphicon.glyphicon-star-empty
-             span.badge.pull-right.badge-default 100m
-           p.address 125 High Street, Glen Waverley VIC 3150
+              +outputRating(location.rating)
+             span.badge.pull-right.badge-default #{location.distance}
+           p.address #{location.address}
            p
-             span.label.label-warning Hot Drinks
+            each facility in location.facilities
+             span.label.label-warning #{facility}
              |  &nbsp;
-             span.label.label-warning Second Element
-             |  &nbsp; 
-             span.label.label-warning Third element
-             |  &nbsp;
+             
 
 
      .col-xs-12.col-sm-4
-       p.lead Loc8r helps you find places to wkr when out and about
+       p.lead #{sidebar} 

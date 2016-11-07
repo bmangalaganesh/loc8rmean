@@ -35,7 +35,19 @@ var renderALocationPage = function(req,resp, responseBody){
 module.exports.homelist = function(req,res,next){
 
 	var locationsListRequestOptions, path;
-	var server = "http://localhost:3000";
+	var server = req.protocol + "://" + req.get('Host');
+
+	console.log("server path is:" + server);
+
+	console.log("The base URL is:" + req.baseUrl);
+	console.log("The original URL is:" + req.originalUrl);
+	console.log("the hostname:"  + req.hostname);
+	console.log("the protocol is:" + req.protocol);
+	console.log("the path:"  + req.path);
+	console.log("the Host info....:" + req.get ('Host') );
+	
+
+
 	path = "/api/locations";
 
 	locationsListRequestOptions = {
@@ -87,7 +99,7 @@ module.exports.locationInfo = function(req,res,next){
 
 console.log("About to retrieve information for locationid" + req.params.locationid);
 var aLocationRequestOptions, path;
-var server = "http://localhost:3000";
+var server = req.protocol + "://" + req.get('Host');
 path = "/api/locations/" + req.params.locationid;
 
 aLocationRequestOptions = {

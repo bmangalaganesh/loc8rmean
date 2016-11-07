@@ -124,6 +124,7 @@ var buildLocationsList = function(request,response, resultsList,stats){
 module.exports.retrieveALocation = function(request,response){
 
 	console.log("About to retrieve a location with locationID:" + request.params.locationid);
+	
 
 	loc
 	.findById(request.params.locationid)

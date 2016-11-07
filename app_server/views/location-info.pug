@@ -17,8 +17,15 @@ block content
             .panel-heading
               h2.panel-title Opening hours
             .panel-body
-             each hour in location.openingHours
-              p #{hour} 
+             each hour in location.openingTimes
+ 
+              p
+                | #{hour.days} :
+                if (hour.closed)
+                  | closed
+                else
+                  | #{hour.opening} - #{hour.closing}
+                  
           .panel.panel-primary
             .panel-heading
               h2.panel-title Facilities

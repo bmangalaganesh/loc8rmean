@@ -14,6 +14,7 @@ if (appEnv) {
 	// If appEnv is not null then print the object so that we can see what is in
 	// it...
 	console.log("App Env is:" + JSON.stringify(appEnv));
+	isLocal = appEnv.isLocal; //Extract the value of isLocal from the appEnv
 	console.log("is the app running locally:" + isLocal);
 }
 
